@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Interesse composto</title>
+  <script type="text/javascript">
+    function calcola(form) {
+      // dati in input
+      var capitale = parseFloat(document.getElementById("capitale").value);
+      var tasso = parseFloat(document.getElementById("tasso").value);
+      var durata = parseInt(document.getElementById("durata").value);
 
+      var tassoUnit = tasso / 100;
+      var montante = capitale * Math.pow((1 + tassoUnit), durata);
+      var interesse = montante - capitale;
+
+      // risultati
+      document.getElementById("interesse").value = interesse.toFixed(2);
+      document.getElementById("montante").value = montante.toFixed(2);
+    }
+  </script>
+
+  <style type="text/css">
+    input {
+      text-align: right;
+    }
+    label {
+      float: left;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Calcolo dell'Interesse Composto</h2>
+  <form id="calcoli">
+    <fieldset>
+      <legend>Dati per il calcolo</legend>
+      <p>
+        <label for="capitale">Capitale iniziale C</label>
+        <input type="text" id="capitale" /> &euro;
+      </p>
+      <p>
+        <label for="tasso">Tasso di interesse i</label>
+        <input type="text" id="tasso" /> %
+      </p>
+      <p>
+        <label for="durata">Tempo t</label>
+        <input type="text" id="durata" /> anni
+      </p>
+    </fieldset>
+
+    <p>
+      <input id="invia" type="button" value="Calcola" onclick="calcola()" />
+    </p>
+
+    <fieldset>
+      <legend>Risultati</legend>
+      <p>
+        <label for="interesse">Interessi I</label>
+        <input type="text" id="interesse" readonly /> &euro;
+      </p>
+      <p>
+        <label for="montante">Montante M</label>
+        <input type="text" id="montante" readonly /> &euro;
+      </p>
+    </fieldset>
+  </form>
+</body>
+</html>
+<!--Realizzato da Christian Iudica,Salvo Puglisi,Luca lo Fermo-->
+ 
